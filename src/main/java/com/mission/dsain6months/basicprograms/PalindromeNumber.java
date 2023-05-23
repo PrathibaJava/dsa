@@ -41,5 +41,6 @@ public class PalindromeNumber {
 		}else {
 			System.out.println(original+ " string is not a palindrome");
 		}
+		sc.close();
 	}
 }
