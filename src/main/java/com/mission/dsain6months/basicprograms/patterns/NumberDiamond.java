@@ -1,6 +1,6 @@
-package com.mission.dsain6months.basicprograms;
+package com.mission.dsain6months.basicprograms.patterns;
 
-public class PatternNumberDiamond {
+public class NumberDiamond {
 
 	public static void main(String[] args) {
 

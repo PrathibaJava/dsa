@@ -1,6 +1,6 @@
-package com.mission.dsain6months.basicprograms;
+package com.mission.dsain6months.basicprograms.patterns;
 
-public class PatternNumberSquareWall {
+public class NumberSquareWall {
 
 	public static void main(String[] args) {
 		int n=4;

@@ -1,6 +1,6 @@
-package com.mission.dsain6months.basicprograms;
+package com.mission.dsain6months.basicprograms.patterns;
 
-public class PatternNumberRightTraiangle {
+public class NumberRightTraiangle {
 
 	public static void main(String[] args) {
 		int row=5;

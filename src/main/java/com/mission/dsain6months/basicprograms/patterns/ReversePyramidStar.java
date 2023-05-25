@@ -1,6 +1,6 @@
-package com.mission.dsain6months.basicprograms;
+package com.mission.dsain6months.basicprograms.patterns;
 
-public class PatternReversePyramidStar {
+public class ReversePyramidStar {
 
 	public static void main(String[] args) {
 		int n = 6;
