@@ -4,7 +4,7 @@ public class DiamondShape {
 
 	public static void main(String[] args) {
 		int n=6;
-		for(int i=0;i<2*n;i++) {
+		for(int i=1;i<2*n;i++) {
 			int numOfStars=(i<=n)?(i):(2*n-i);
 			//int numOfSpaces=(i<=n)?(n-i):(i-n);
 			int numOfSpaces=n-numOfStars;
