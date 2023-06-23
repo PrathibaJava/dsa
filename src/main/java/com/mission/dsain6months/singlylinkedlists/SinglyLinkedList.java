@@ -24,6 +24,15 @@ public class SinglyLinkedList {
 		System.out.println("null");
 	}
 	
+	public void display(ListNode head) {
+		ListNode current=head;
+		while(current!=null) {
+			System.out.print(current.data+" --> ");
+			current=current.next;
+		}
+		System.out.println("null");
+	}
+	
 	public int length() {
 		if(head==null) {
 			return 0;
@@ -134,16 +143,85 @@ public class SinglyLinkedList {
 		return false;
 	}
 	
-	public void reverseSinglyLinkedList() {
+	public ListNode reverseSinglyLinkedList() {
 		ListNode current=head;
 		ListNode previous=null;
-		while(current.next!=null) {
+		ListNode next=null;
+		while(current!=null) {
+			next=current.next;
+			current.next=previous;
 			previous=current;
-			current=current.next;
+			current=next;
+		}
+		return previous;
+	}
+	
+	public ListNode middleNode() {
+		if(head==null) {
+			return head;
 		}
 		
+		ListNode slowPtr=head;
+		ListNode fastPtr=head;
+		while(fastPtr!=null && fastPtr.next!=null) {
+			slowPtr=slowPtr.next;
+			fastPtr=fastPtr.next.next;
+		}
+		return slowPtr;
+	}
+	
+	public ListNode nthNodeFromEnd(int pos) {
+		if(head==null) {
+			return head;
+		}
 		
+		if(pos<=0) {
+			throw new IllegalArgumentException("Invalid position value: "+pos);
+		}
+		ListNode refNode=head;
+		ListNode mainNode=head;
+		int count=0;
+		while(count<pos) {
+			if(refNode==null) {
+				throw new IllegalArgumentException("Position is greater than the length of list");
+			}
+			count++;
+			refNode=refNode.next;
+		}
 		
+		while(refNode!=null) {
+			mainNode=mainNode.next;
+			refNode=refNode.next;
+		}
+		return mainNode;
+	}
+	
+	public void removeDuplicates() {
+		if(head==null) {
+			return;
+		}
+		ListNode current=head;
+		while(current.next!=null) {
+			if(current.data==current.next.data) {
+				current.next=current.next.next;
+			}else {
+				current=current.next;
+			}
+		}
+	}
+	
+	public void insertNodeInSortedLinkedList(ListNode node) {
+		if(head==null) {
+			return;
+		}
+		ListNode current=head;
+		ListNode temp=null;
+		while(current!=null && current.data<node.data) {
+			temp=current;
+			current=current.next;
+		}
+		temp.next=node;
+		node.next=current;
 	}
 	
 	public static void main(String[] args) {
@@ -192,5 +270,29 @@ public class SinglyLinkedList {
 		
 		System.out.println(sll.searchNode(10));
 		System.out.println(sll.searchNode(12));
+		
+		/*
+		 * ListNode reversed=sll.reverseSinglyLinkedList(); sll.display(reversed);
+		 */
+		
+		sll.display();
+		System.out.println(sll.middleNode().data);
+		sll.insertFirst(24);
+		sll.display();
+		System.out.println(sll.middleNode().data);
+		System.out.println(sll.nthNodeFromEnd(4).data);
+		
+		sll.deleteFirstNode();
+		sll.deleteFirstNode();
+		sll.deleteNodeAtPosition(2);
+		sll.deleteNodeAtPosition(2);
+		
+		sll.display();
+		
+		sll.removeDuplicates();
+		sll.display();
+		
+		sll.insertNodeInSortedLinkedList(new ListNode(10));
+		sll.display();
 	}
 }
