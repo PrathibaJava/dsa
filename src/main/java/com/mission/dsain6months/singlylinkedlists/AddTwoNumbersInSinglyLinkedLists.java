@@ -1,7 +1,7 @@
 package com.mission.dsain6months.singlylinkedlists;
 
-public class MergeTwoSortedSinglyLinkedLists {
-
+public class AddTwoNumbersInSinglyLinkedLists {
+	
 	private ListNode head;
 	
 	private static class ListNode {
@@ -14,8 +14,8 @@ public class MergeTwoSortedSinglyLinkedLists {
 		}
 	}
 	
-	private static MergeTwoSortedSinglyLinkedLists sll1=new MergeTwoSortedSinglyLinkedLists();
-	private static MergeTwoSortedSinglyLinkedLists sll2=new MergeTwoSortedSinglyLinkedLists();
+	private static AddTwoNumbersInSinglyLinkedLists sll1=new AddTwoNumbersInSinglyLinkedLists();
+	private static AddTwoNumbersInSinglyLinkedLists sll2=new AddTwoNumbersInSinglyLinkedLists();
 	
 	public void display() {
 		ListNode current=head;
@@ -26,52 +26,45 @@ public class MergeTwoSortedSinglyLinkedLists {
 		System.out.println("null");
 	}
 	
-	public static ListNode mergeLists(ListNode a, ListNode b) {
+	public static ListNode addNumbers(ListNode a, ListNode b) {
 		ListNode dummy=new ListNode(0);
 		ListNode tail=dummy;
-		
-		while(a!=null && b!=null) {
-			if(a.data <= b.data) {
-				tail.next=a;
-				a=a.next;
-			}else {
-				tail.next=b;
-				b=b.next;
-			}
+		int carry=0;
+		while(a!=null || b!=null) {
+			int x=(a!=null)?a.data:0;
+			int y=(b!=null)?b.data:0;
+			int sum=x+y+carry;
+			carry=sum/10;
+			tail.next=new ListNode(sum%10);
 			tail=tail.next;
+			if(a!=null) a=a.next;
+			if(b!=null) b=b.next;
 		}
-		
-		if(a==null) {
-			tail.next=b;
-		}else {
-			tail.next=a;
+		if(carry>0) {
+			tail.next=new ListNode(carry);
 		}
 		return dummy.next;
 	}
-	
-	
+
 	public static void main(String[] args) {
-		
-		sll1.head=new ListNode(1);
+
+		sll1.head=new ListNode(7);
 		ListNode second1=new ListNode(4);
 		ListNode third1=new ListNode(8);
-		ListNode fourth1=new ListNode(10);
 		sll1.head.next=second1;
 		second1.next=third1;
-		third1.next=fourth1;
 		
-		sll2.head=new ListNode(3);
+		sll2.head=new ListNode(5);
 		ListNode second2=new ListNode(6);
-		ListNode third2=new ListNode(7);
+		ListNode third2=new ListNode(4);
 		sll2.head.next=second2;
 		second2.next=third2;
 		
 		sll1.display();
 		sll2.display();
 		
-		MergeTwoSortedSinglyLinkedLists result=new MergeTwoSortedSinglyLinkedLists();
-		result.head=mergeLists(sll1.head, sll2.head);
+		AddTwoNumbersInSinglyLinkedLists result=new AddTwoNumbersInSinglyLinkedLists();
+		result.head=addNumbers(sll1.head, sll2.head);
 		result.display();
 	}
-
 }
