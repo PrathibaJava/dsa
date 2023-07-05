@@ -66,5 +66,4 @@ public class RemoveFirstNodeFromCLL {
 		System.out.println(cll.removeFirstNode());
 		cll.display();
 	}
-
 }
