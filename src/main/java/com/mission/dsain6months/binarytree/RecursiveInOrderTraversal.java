@@ -1,6 +1,6 @@
 package com.mission.dsain6months.binarytree;
 
-public class RecursivePreOrderTraversal {
+public class RecursiveInOrderTraversal {
 
 	private TreeNode root;
 	
@@ -23,27 +23,27 @@ public class RecursivePreOrderTraversal {
 		TreeNode fourth=new TreeNode(13);
 		TreeNode fifth=new TreeNode(14);
 		TreeNode sixth=new TreeNode(15);
+		
 		root=first;
-		root.left=second;
-		root.right=third;
+		first.left=second;
+		first.right=third;
 		second.left=fourth;
 		second.right=fifth;
 		third.left=sixth;
 	}
 	
-	public void preOrder(TreeNode root) {
+	public void inOrderTraversal(TreeNode root) {
 		if(root==null) {
 			return;
 		}
+		inOrderTraversal(root.left);
 		System.out.print(root.data+" ");
-		preOrder(root.left);
-		preOrder(root.right);
+		inOrderTraversal(root.right);
 	}
 	
 	public static void main(String[] args) {
-		RecursivePreOrderTraversal t=new RecursivePreOrderTraversal();
-		t.createBinaryTree();
-		t.preOrder(t.root);
+		RecursiveInOrderTraversal r=new RecursiveInOrderTraversal();
+		r.createBinaryTree();
+		r.inOrderTraversal(r.root);
 	}
-
 }

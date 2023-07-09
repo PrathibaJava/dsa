@@ -1,10 +1,13 @@
 package com.mission.dsain6months.binarytree;
 
-public class RecursivePreOrderTraversal {
+import java.util.Stack;
 
+public class IterativePreOrderTraversal {
+	
 	private TreeNode root;
 	
 	private static class TreeNode {
+		
 		private int data;
 		private TreeNode left;
 		private TreeNode right;
@@ -23,6 +26,7 @@ public class RecursivePreOrderTraversal {
 		TreeNode fourth=new TreeNode(13);
 		TreeNode fifth=new TreeNode(14);
 		TreeNode sixth=new TreeNode(15);
+		
 		root=first;
 		root.left=second;
 		root.right=third;
@@ -31,19 +35,28 @@ public class RecursivePreOrderTraversal {
 		third.left=sixth;
 	}
 	
-	public void preOrder(TreeNode root) {
+	public void iterativePreOrder() {
 		if(root==null) {
 			return;
 		}
-		System.out.print(root.data+" ");
-		preOrder(root.left);
-		preOrder(root.right);
+		Stack<TreeNode> s=new Stack<>();
+		s.push(root);
+		while(!s.isEmpty()) {
+			TreeNode temp=s.pop();
+			System.out.print(temp.data+" ");
+			if(temp.right!=null) {
+				s.push(temp.right);
+			}
+			if(temp.left!=null) {
+				s.push(temp.left);
+			}
+		}
 	}
-	
+
 	public static void main(String[] args) {
-		RecursivePreOrderTraversal t=new RecursivePreOrderTraversal();
-		t.createBinaryTree();
-		t.preOrder(t.root);
+		IterativePreOrderTraversal it=new IterativePreOrderTraversal();
+		it.createBinaryTree();
+		it.iterativePreOrder();
 	}
 
 }
