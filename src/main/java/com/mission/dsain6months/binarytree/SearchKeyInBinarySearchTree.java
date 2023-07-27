@@ -66,7 +66,7 @@ public class SearchKeyInBinarySearchTree {
 		bt.inOrder(bt.root);
 		System.out.println();
 		
-		if(bt.searchKey(10)!=null) {
+		if(bt.searchKey(7)!=null) {
 			System.out.println("Key found");
 		}else {
 			System.out.println("Key not found");
