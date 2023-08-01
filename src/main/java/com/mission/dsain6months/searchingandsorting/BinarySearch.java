@@ -1,30 +1,27 @@
 package com.mission.dsain6months.searchingandsorting;
 
-import java.util.Arrays;
-
 public class BinarySearch {
 
-	public static void main(String[] args) {
-		int[] a = { 12, 56, 14, 87, 32 };
-		Arrays.sort(a);
-		int key = 312;
-		System.out.println("Key is found at " + binarySearch(a, key) + " position");
-	}
-
-	public static int binarySearch(int[] a, int key) {
-		int first = 0;
-		int last = a.length - 1;
-		int mid = (first + last) / 2;
-		while (first <= last) {
-			if (a[mid] < key) {
-				first = mid + 1;
-			} else if (a[mid] == key) {
+	public static int binarySearch(int[] x, int n, int key) {
+		int low = 0;
+		int high = n - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (x[mid] == key) {
 				return mid;
-			} else {
-				last = mid - 1;
 			}
-			mid = (first + last) / 2;
+			if (key < x[mid]) {
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
 		}
 		return -1;
 	}
+
+	public static void main(String[] args) {
+		int[] x = { 1, 10, 20, 47, 59, 65, 75, 88, 99};
+		System.out.println(binarySearch(x, x.length, 99));
+	}
+
 }
