@@ -6,7 +6,7 @@ public class Pattern1 {
 1) Outer loop - For rows, count the number of lines/rows
 2) Inner loop - For columns, focus on columns and connect them somehow to the rows
 3) Print whatever in the inner for loop
-4) Observe symmetry in the pattern
+4) Observe symmetry in the pattern (optional step)
 
 https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/*/
 
