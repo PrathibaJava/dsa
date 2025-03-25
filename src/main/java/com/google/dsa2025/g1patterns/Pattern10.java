@@ -3,7 +3,7 @@ package com.google.dsa2025.g1patterns;
 public class Pattern10 {
 
     public static void main(String[] args) {
-        print(3);
+        print(5);
     }
 
     public static void print(int n){

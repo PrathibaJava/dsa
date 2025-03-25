@@ -2,7 +2,7 @@ package com.google.dsa2025.g1patterns;
 
 public class Pattern12 {
     public static void main(String[] args) {
-        print(3);
+        print(4);
     }
     public static void print(int n){
         for(int i=1;i<=n;i++){
